@@ -20,5 +20,29 @@ def get_traveler_location(traveler: str):
     return traveler_destination_index
 
 
-test_destination_index = get_traveler_location(test_traveler)
-print(test_destination_index)
+# test_destination_index = get_traveler_location(test_traveler)
+# print(test_destination_index)
+
+attractions = [list() for time in range(5)]  # [[], [], [], [], []]
+
+
+def add_attraction(destination: str, attraction: str):
+    destination_index = get_destination_index(destination)
+    # If destination exist -> a list in attractions
+    attractions[destination_index].append(attraction)
+
+
+add_attraction(destination="Los Angeles, USA", attraction=["Venice Beach", ["beach"]])
+add_attraction("Paris, France", ["the Louvre", ["art", "museum"]])
+add_attraction("Paris, France", ["Arc de Triomphe", ["historical site", "monument"]])
+add_attraction("Shanghai, China", ["Yu Garden", ["garden", "historical site"]])
+add_attraction("Shanghai, China", ["Yuz Museum", ["art", "museum"]])
+add_attraction(
+    "Shanghai, China", ["Oriental Pearl Tower", ["skyscraper", "viewing deck"]]
+)
+add_attraction("Los Angeles, USA", ["LACMA", ["art", "museum"]])
+add_attraction("São Paulo, Brazil", ["São Paulo Zoo", ["zoo"]])
+add_attraction("São Paulo, Brazil", ["Pátio do Colégio", ["historical site"]])
+add_attraction("Cairo, Egypt", ["Pyramids of Giza", ["monument", "historical site"]])
+add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
+print(attractions)  # [[], [], [['Venice Beach', ['beach']]], [], []]
